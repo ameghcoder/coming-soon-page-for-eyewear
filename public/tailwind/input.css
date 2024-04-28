@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    body{
+        font-family: "Raleway", sans-serif;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6, strong, p, a{
+        @apply text-slate-300;
+    }
+
+    .link{
+        position: relative;
+        overflow: hidden;
+    }
+    .link:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100%;
+        transform: skew(-30deg);
+        left: -100px;
+        background: rgba(255,255,255,0.2);
+        transition: all 0.5s ease;
+    }
+    .link:hover:before{
+        left: 200px;
+    }
+
+    .cometoleft{
+        animation: comeLeft 0.5s ease-in-out 0.5s 1 forwards;
+    }
+    .cometoright{
+        animation: comeRight 0.5s ease-in-out 0.5s 1 forwards;
+    }
+    .fullheight{
+        animation: expand 0.3s ease-in-out 0.2s 1 forwards;
+    }
+    .cometoup{
+        animation: comeUpwithFadeEffect 0.5s linear 0.2s 1 forwards;
+    }
+
+    .mask-image{
+        -webkit-mask-image:url('../assets/lens.png');
+        -webkit-mask-position:center center;
+        -webkit-mask-repeat:no-repeat;
+        -webkit-mask-size:cover;
+        
+        mask-image:url('../assets/lens.png');
+        mask-position:center center;
+        mask-repeat:no-repeat;
+        mask-size:contain;
+    }
+
+    .frame-animation{
+        animation: zoomOut 1.5s cubic-bezier(0.43, -0.4, 0.46, 1.5) 1 forwards;
+    }
+    @media (max-width: 639px) {
+        .frame-animation{
+            transform: scale(3) rotate(0deg);
+        }
+        @keyframes zoomOut {
+            from{
+                transform: scale(3) rotate(45deg);
+            }
+            to{
+                transform: scale(1) rotate(45deg);
+            }
+        }
+    }
+    @media (min-width: 640px) {
+        .frame-animation{
+            transform: scale(3) rotate(0deg);
+        }
+        @keyframes zoomOut {
+            from{
+                transform: scale(3) rotate(0deg);
+            }
+            to{
+                transform: scale(1) rotate(0deg);
+            }
+        }
+    }
+    @keyframes slowmotion {
+        from{
+            transform: scale(1);
+        }
+        to{
+            transform: scale(0.9);
+        }
+    }
+    @keyframes comeLeft {
+        from{
+            transform: translateX(96px);
+        }
+        to{
+            transform: translateX(0px);
+        }
+    }
+    @keyframes comeRight {
+        from{
+            transform: translateX(-160px);
+        }
+        to{
+            transform: translateX(0px);
+        }
+    }
+    @keyframes expand {
+        from{
+            height: 4px;
+        }
+        to{
+            height: 56px;
+        }
+    }
+    @keyframes comeUpwithFadeEffect {
+        from{
+            opacity: 0.1;            
+            transform: translateY(20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    @keyframes expandW {
+        from{
+            width: 0px;
+        }
+        to{
+            width: 100%;
+        }
+    }
+    .shineBase{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100%;
+        transform: skew(-30deg);
+        transition: all 0.5s ease;
+    }
+    .shineEffect{
+        left: -100px;
+        background: rgba(255, 255, 255, 0.5);
+        animation: shine 1s ease-in-out 2s 2 alternate;
+    }
+    .shineEffect-2{
+        left: -150px;
+        background: rgba(255,255,255,0.2);
+        animation: shine-2 1s cubic-bezier(0.43, -0.4, 0.46, 1.5) 2s 2 alternate;
+    }
+    @keyframes shine {
+        from{
+            left: -100px;
+        }
+        to{
+            left: 200%;
+        }
+    }
+    @keyframes shine-2 {
+        from{
+            left: -150px;
+        }
+        to{
+            left: 200%;
+        }
+    }
+    .gradient-background {
+        width: 100%;
+        height: 600px;
+        background: linear-gradient(124deg, #000, #231b1b);
+           animation: gradient 5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; 
+        background-size: 400% 400%;
+        
+    }
+    @keyframes gradient{
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+    }
+}
