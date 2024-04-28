@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./public/style/build.css">
+    <link rel="stylesheet" href="./public/style/main.css">
     <title>Effect</title>
 </head>
 <body>
@@ -28,13 +28,13 @@
                     <strong class="cometoright -translate-x-40 text-xl font-normal tracking-widest flex flex-col"><span>Dinesh</span><span>Chashmagar</span></strong>
                 </div>
             </div>
-            <div>
-                <h1 class="text-center cometoup text-2xl sm:text-4xl font-bold translate-y-5 opacity-10">Ready to Shine? Sunglass Paradise <br><span class="animate-pulse uppercase tracking-widest">Coming Soon</span></h1>
+            <div class="my-5 md:my-0">
+                <h1 class="text-center cometoup text-xl sm:text-2xl font-bold translate-y-5 opacity-10">Ready to Shine? Sunglass Paradise <br><span class="animate-pulse uppercase tracking-widest">Coming Soon</span></h1>
             </div>
         </div>
-        <div class="container h-[calc(100%-200px)] mx-auto z-50 flex items-center justify-center">
+        <div class="container my-5 md:my-0 md:h-[calc(100%-200px)] mx-auto z-50 flex items-center justify-center">
             <div class="frame frame-animation w-full max-w-screen-sm mx-auto flex items-center justify-center relative">
-                <img class="w-full max-w-screen-sm absolute -z-10" src="./public/assets/Front-1.png" alt="eyeglasses frame">
+                <img id="sunglass-frame" class="w-full max-w-screen-sm absolute -z-10" src="./public/assets/Front-1.png" alt="eyeglasses frame">
                 <div class="mask-image z-10 w-full relative overflow-hidden">
                     <div class="gradient-background"></div>
                     <div class="shineBase shineEffect"></div>
@@ -43,9 +43,6 @@
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init()
-    </script>
+    <script src="./public/script/main.js"></script>
 </body>
 </html>
