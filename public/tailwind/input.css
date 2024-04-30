@@ -7,19 +7,21 @@
         --theme-gold-clr: 126 114 97;
         --theme-blue-clr: 26 34 49;
         --theme-gold-clr-2: 231 205 161;
-        color: #e7cda1;
+        --variable-rotate: -30deg;
+        --color: #e7cda1;
     }
     body{
         font-family: "Oswald", sans-serif;
         width: 100vw;
         height: 100vh;
         overflow-x: hidden;
+        overflow-y: hidden;
     }
     html{
         scroll-behavior: smooth;
     }
     ::-webkit-scrollbar {
-        width: 5px;
+        width: 5px;     
     }
     ::-webkit-scrollbar-track {
         background: rgb(var(--theme-blue-clr));
@@ -49,29 +51,17 @@
         background-image: url('../assets/call.png');
     }
     .input-group{
-        @apply w-full h-8 flex items-center overflow-hidden my-1 rounded-md border border-theme_gold_2 transition-all;
+        @apply text-base w-full h-7 flex items-center overflow-hidden my-1 rounded-md border border-theme_gold_2 transition-all;
     }
     .input-group label{
         @apply p-2 bg-theme_gold_2 flex items-center justify-center text-black;
     }
     .input-group input{
-        @apply px-2 py-2 outline-none w-full flex h-auto tracking-widest text-black;
-    }
-    .pop-animation{
-        animation: popup 200ms 1;
-        transition: all 200ms cubic-bezier(0.65, -1.34, 0, 2.97);
-    }
-    @keyframes popup {
-        0%{
-            transform: scale(0);
-        }
-        100%{
-            transform: scale(1);
-        }
+        @apply px-2 py-1 h-7 text-sm outline-none w-full flex tracking-widest text-black;
     }
     .bg-gradient{
         background: #030B1B;
-        background: radial-gradient(at center top, #030B1B, #010101);
+        background: radial-gradient(at center top, #091b3f, #010101);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -102,14 +92,14 @@
     }
 
     .cometoleft{
-        transform: translateX(96px);
+        transform: translateY(96px);
         animation: comeLeft 0.5s ease-in-out 0.5s 1 forwards;
     }
     .cometoright{
-        transform: translateX(-160px);
+        transform: translateY(-160px);
         animation: comeRight 0.5s ease-in-out 0.5s 1 forwards;
     }
-    .fullheight{
+    .fullwidth{
         animation: expand 0.3s ease-in-out 0.2s 1 forwards;
     }
     .cometoup{
@@ -131,17 +121,18 @@
         transition: all 0.1s linear;
     }
     .frame-animation{
-        transform: scale(0.3) rotate(-45deg);
+        transform: scale(0.3) rotate(var(--variable-rotate));
         animation: zoomOut 1.5s cubic-bezier(0.43, -0.4, 0.46, 1.5) 1 forwards;
     }
     @keyframes zoomOut {
         from{
-            transform: scale(0.3) rotate(-45deg);
+            transform: scale(0.3) rotate(var(--variable-rotate));
         }
         to{
-            transform: scale(1) rotate(-45deg);
+            transform: scale(1) rotate(var(--variable-rotate));
         }
     }
+    
     @keyframes slowmotion {
         from{
             transform: scale(1);
@@ -152,26 +143,26 @@
     }
     @keyframes comeLeft {
         from{
-            transform: translateX(96px);
+            transform: translateY(96px);
         }
         to{
-            transform: translateX(0px);
+            transform: translateY(0px);
         }
     }
     @keyframes comeRight {
         from{
-            transform: translateX(-160px);
+            transform: translateY(-160px);
         }
         to{
-            transform: translateX(0px);
+            transform: translateY(0px);
         }
     }
     @keyframes expand {
         from{
-            height: 4px;
+            width: 4px;
         }
         to{
-            height: 56px;
+            width: 56px;
         }
     }
     @keyframes comeUpwithFadeEffect {
@@ -192,8 +183,8 @@
             width: 100%;
         }
     }
-    .popup-anim{
-        animation: popup 1s cubic-bezier(1, 0, 0.42, 1.99) 4s 1 forwards;
+    .popup-anime{
+        animation: popup 0.5s cubic-bezier(1, 0, 0.42, 1.99) 1 forwards;
     }
     @keyframes popup {
         from{
@@ -272,5 +263,44 @@
 
     .fixedContent{
         position: fixed;
+    }
+
+    h2.stroke-line{
+        color: transparent;
+        -webkit-text-stroke: 0.5px rgb(var(--theme-gold-clr-2));
+    }
+    h2.wave{
+        animation: textWave 4s ease-in-out infinite;
+    }
+
+    @keyframes textWave {
+        0%,
+        100% {
+            clip-path: polygon(
+                0% 45%,
+                16% 44%,
+                33% 50%,
+                54% 60%,
+                70% 61%,
+                84% 59%,
+                100% 52%,
+                100% 100%,
+                0% 100%
+            );
+        }
+    
+        50% {
+            clip-path: polygon(
+                0% 60%,
+                15% 65%,
+                34% 66%,
+                51% 62%,
+                67% 50%,
+                84% 45%,
+                100% 46%,
+                100% 100%,
+                0% 100%
+            );
+        }
     }
 }
