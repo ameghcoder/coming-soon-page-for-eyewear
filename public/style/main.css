@@ -559,7 +559,7 @@ html{
 
 .bg-gradient{
   background: #030B1B;
-  background: radial-gradient(at center top, #091b3f, #010101);
+  background: radial-gradient(at center top, #464b5a, #010101);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
